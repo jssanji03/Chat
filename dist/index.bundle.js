@@ -1,6 +1,57 @@
 /******/ (function() { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
+/***/ "./src/js/control.js":
+/*!***************************!*\
+  !*** ./src/js/control.js ***!
+  \***************************/
+/***/ (function() {
+
+const smallBtn = document.querySelector(".js-small");
+const middleBtn = document.querySelector(".js-middle");
+const largeBtn = document.querySelector(".js-large");
+const labelSize = document.querySelectorAll(".form-label");
+const inputSize = document.querySelectorAll(".custom-col");
+smallBtn.addEventListener("click", e => {
+  fontSize(12);
+  formSize("col-lg-4");
+  myFunction(e);
+});
+middleBtn.addEventListener("click", e => {
+  fontSize(15);
+  formSize("col-lg-6");
+  myFunction(e);
+});
+largeBtn.addEventListener("click", e => {
+  fontSize(20);
+  formSize("col-lg-12");
+  myFunction(e);
+});
+
+function fontSize(x) {
+  labelSize.forEach(item => {
+    item.style.fontSize = x + "px";
+  });
+}
+
+function formSize(y) {
+  inputSize.forEach(item => {
+    item.classList = "col-12 custom-col ".concat(y);
+  });
+}
+
+function myFunction(e) {
+  const elems = document.querySelector(".active");
+
+  if (elems !== null) {
+    elems.classList.remove("active");
+  }
+
+  e.target.classList.add("active");
+}
+
+/***/ }),
+
 /***/ "./node_modules/bootstrap/dist/js/bootstrap.js":
 /*!*****************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.js ***!
@@ -17993,11 +18044,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 /* harmony import */ var bootstrap__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(bootstrap__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _scss_index_scss__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./scss/index.scss */ "./src/scss/index.scss");
+/* harmony import */ var _js_control__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/control */ "./src/js/control.js");
+/* harmony import */ var _js_control__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_js_control__WEBPACK_IMPORTED_MODULE_3__);
 //import 套件
 
  //import scss
 
- // import './js/control';
+
+
 
 if (false) {}
 }();
