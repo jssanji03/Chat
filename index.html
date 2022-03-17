@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Html</title>
+<script defer src="./index.bundle.js"></script><link href="./css/index.css" rel="stylesheet"></head>
+<body>
+    <section>
+        <div class="container mt-5">
+            <div class="row">
+                <div class="btn-group d-flex justify-content-end mb-3">
+                    <button class="btn custom-btn js-small" type="button">小</button>
+                    <button class="btn custom-btn js-middle active" type="button">中</button>
+                    <button class="btn custom-btn js-large" type="button">大</button>
+                </div>
+            </div>
+            <form class="row custom-form">
+                <div class="col-12 col-lg-6 custom-col">
+                    <label class="form-label">日期:</label>
+                    <input class="form-control form-control-sm js-date" name="singleDate" type="date">
+                </div>
+                <div class="col-12 col-lg-6 custom-col">
+                    <label class="form-label">部門:</label>
+                    <div class="col-12 p-0">
+                        <select class="custom-select custom-select-sm js-dept">
+                            <option selected disabled hidden>Open this select menu</option>
+                            <option value="One">One</option>
+                            <option value="Two">Two</option>
+                            <option value="Three">Three</option>
+                        </select>
+                        <p class="form-message" data-message="部門"></p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 custom-col">
+                    <label class="form-label">客戶名稱:</label>
+                    <div class="col-12 p-0">
+                        <select class="custom-select custom-select-sm js-customer">
+                            <option disabled selected hidden>Open this select menu</option>
+                            <option value="A">Ａ</option>
+                            <option value="B">Ｂ</option>
+                            <option value="C">Ｃ</option>
+                        </select>
+                        <p class="form-message" data-message="客戶名稱"></p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 custom-col">
+                    <label class="form-label">地址:</label>
+                    <input class="form-control form-control-sm js-Address" type="text" style="width: 100%;">
+                    </input>
+                </div>
+                <div class="col-12 col-lg-6 custom-col">
+                    <div class="form-group col-lg-12">
+                        <label class="col-12 form-label" for="fixedArea">內容:</label>
+                        <textarea class="form-control col-12 js-content" cols=10 rows="4" maxlength="700"></textarea>
+                        <p class="form-message" data-message="內容"></p>
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 custom-col">
+                    <label class="col-12 form-label" for="fixedArea">是否發布:</label>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="Options" id="inlineRadio1" value="true">
+                        <label class="form-check-label" for="inlineRadio1">是</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="Options" id="inlineRadio2" value="false">
+                        <label class="form-check-label" for="inlineRadio2">否</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+    <section>
+        <div class="row">
+            <div class="col-12">
+                <button class="submit-Btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
