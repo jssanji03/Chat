@@ -1,0 +1,25 @@
+.custom-form{
+    .custom-col{
+        margin-bottom: 20px;
+        .form-label{
+            margin: 0px;
+            font-size: 15px;
+        }
+    }
+}
+.submit-Btn{
+    width: 60px;
+    height: 60px;
+    background-color: rgb(185, 195, 214);
+    color: #FFF;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 1px 2px 8px  rgba(115, 124, 141, 0.514);
+    position: fixed;
+    right: 40px;
+    bottom: 80px;
+    z-index: 999;
+    i{
+        font-size: 25px;
+    }
+}
