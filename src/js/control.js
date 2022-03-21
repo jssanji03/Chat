@@ -59,10 +59,12 @@ input.addEventListener("keydown", (e) => {
         insertMessage();
         return false;
     }
-    if (e.keyCode == 38 || e.keyCode == 40) {
-        document.querySelector(".chat-feedback").innerHTML="Your partner is typing…"
-    }
 })
+// input.addEventListener("compositionstart", (e) => {
+//     document.querySelector(".chat-feedback").innerHTML = "Your partner is typing…"
+//     console.log("Your partner is typing…");
+// })
+
 document.querySelector(".message-submit").addEventListener("click", () => {
     insertMessage();
 })
