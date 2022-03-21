@@ -1,39 +1,68 @@
-const smallBtn = document.querySelector(".js-small")
-const middleBtn = document.querySelector(".js-middle")
-const largeBtn = document.querySelector(".js-large")
-const labelSize = document.querySelectorAll(".form-label")
-const inputSize = document.querySelectorAll(".custom-col")
-
-smallBtn.addEventListener("click", (e) => {
-    fontSize(12)
-    formSize("col-lg-4")
-    myFunction(e)
-})
-middleBtn.addEventListener("click", (e) => {
-    fontSize(15)
-    formSize("col-lg-6")
-    myFunction(e)
-})
-largeBtn.addEventListener("click", (e) => {
-    fontSize(20)
-    formSize("col-lg-12")
-    myFunction(e)
-})
-
-function fontSize(x) {
-    labelSize.forEach((item) => {
-        item.style.fontSize = x +"px" 
-    })
+const expandBtn = document.querySelector(".expend")
+const element = document.querySelector(".js-header");
+const closeWindow = document.querySelector(".js-close");
+const chatWindow = document.querySelector('.chatBox');
+const chatBox = document.querySelector('.chat-thread');
+const input =document.querySelector(".message-input")
+window.onload = function () {
+    chatBox.scrollTop = chatBox.scrollHeight;
+    expandBtn.style.display = 'block';
 }
-function formSize(y) {
-    inputSize.forEach((item) => {
-        item.classList=`col-12 custom-col ${y}`
-    })
+
+expandBtn.addEventListener("click",openElement)
+closeWindow.addEventListener("click",closeElement)
+
+function closeElement() {
+    chatWindow.classList.add("close")
+    expandBtn.style.display = 'block';
 }
-function myFunction(e) {
-    const elems = document.querySelector(".active");
-    if(elems !==null){
-        elems.classList.remove("active");
+function openElement() {
+    chatWindow.classList.remove("close")
+    expandBtn.style.display = 'none';
+    chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+function setDate() {
+    d = new Date();
+    m = 0;
+    if (m != d.getMinutes()) {
+        m = ('0' + d.getMinutes()).substr(-2);
+        console.log(m);
+        $('.timestamp').text(d.getHours() + ':' + m)
     }
-    e.target.classList.add("active");
 }
+
+function insertMessage() {
+    const regexp = /((ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?)/gi;
+    msg = input.value.replace(regexp, '<a target="_blank" href="$1">$1</a>');
+    if (msg.trim() == '') {
+        return false;
+    }
+    creatNode(msg)
+    setDate();
+    chatBox.scrollTop = chatBox.scrollHeight;
+    input.value = " ";
+}
+
+function creatNode(x) {
+    const newLi = document.createElement("li");
+    const newSmall = document.createElement("small");
+    newLi.setAttribute("class", "message")
+    newSmall.setAttribute("class", "timestamp")
+    newLi.innerHTML = x;
+    newLi.appendChild(newSmall)
+    document.querySelector(".chat-thread").appendChild(newLi)
+}
+input.addEventListener("keydown", (e) => {
+    e = window.event || e;
+    if (e.code == "Enter") {
+        insertMessage();
+        return false;
+    }
+    if (e.keyCode == 38 || e.keyCode == 40) {
+        document.querySelector(".chat-feedback").innerHTML="Your partner is typing…"
+    }
+})
+document.querySelector(".message-submit").addEventListener("click", () => {
+    insertMessage();
+})
